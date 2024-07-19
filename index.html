@@ -5,37 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قائمة المقهى | Cafe Menu</title>
     <style>
+        /* Base Styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(45deg, #ffffff, #f8f8f8);
-            color: #b39c58;
-            direction: rtl;
             margin: 0;
             padding: 0;
-            height: 100vh;
+            background-color: #003d3d; /* Deep emerald green background */
+            color: #e0e0e0; /* Light text color */
+            direction: rtl;
             display: flex;
             flex-direction: column;
+            height: 100vh;
         }
 
         header {
+            background-color: #005757; /* Slightly lighter emerald green */
+            padding: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            background: linear-gradient(45deg, #fffde4, #fffae1);
-            border-bottom: 2px solid #b39c58;
+            border-bottom: 3px solid #005757; /* Matching border */
         }
 
         h1, h2 {
             margin: 0;
-            color: #b39c58;
+            color: #e0e0e0; /* Light text color */
         }
 
         select {
-            padding: 5px;
-            background-color: #fffae1;
-            color: #b39c58;
-            border: 1px solid #b39c58;
+            padding: 8px;
+            background-color: #003d3d; /* Same deep emerald green */
+            color: #e0e0e0; /* Light text for select */
+            border: 1px solid #005757; /* Matching border */
             border-radius: 5px;
         }
 
@@ -46,15 +47,16 @@
         }
 
         ul {
-            list-style-type: none;
+            list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         li {
             padding: 15px;
-            background: linear-gradient(45deg, #fff8e1, #fff4d8);
+            background-color: #005757; /* Slightly lighter emerald green */
             margin: 10px 0;
-            border: 1px solid #b39c58;
+            border: 1px solid #003d3d; /* Deep emerald green border */
             border-radius: 10px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
@@ -62,25 +64,28 @@
         }
 
         li:hover {
-            background-color: #fff0c2;
-            transform: scale(1.02);
+            background-color: #003d3d; /* Deep emerald green on hover */
+            transform: scale(1.03);
         }
 
         .category-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background-color: #005757; /* Slightly lighter emerald green */
+            padding: 10px;
+            border-radius: 5px;
         }
 
         .category-header span {
             flex: 1;
+            color: #e0e0e0; /* Light text color for category header */
         }
 
         .toggle-icon {
             width: 20px;
             height: 20px;
-            margin-left: 10px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23b39c58" d="M12 15.5l-6.5-6.5 1.5-1.5 5 5 5-5 1.5 1.5z"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23e0e0e0" d="M12 15.5l-6.5-6.5 1.5-1.5 5 5 5-5 1.5 1.5z"/></svg>');
             background-repeat: no-repeat;
             background-size: contain;
             transition: transform 0.3s;
@@ -107,10 +112,13 @@
         .product-item {
             display: flex;
             justify-content: space-between;
+            background-color: #005757; /* Slightly lighter emerald green for product items */
+            padding: 10px;
+            border-bottom: 1px solid #003d3d; /* Deep emerald green border for product items */
         }
 
-        .product-item span {
-            color: #b39c58;
+        .product-item:hover {
+            background-color: #003d3d; /* Deep emerald green on hover */
         }
     </style>
 </head>
@@ -174,132 +182,60 @@
                     <ul class="products">
                         <li class="product-item"><span id="product4_1">كفته بالبندوره (500 غم)</span><span>5.50 JD</span></li>
                         <li class="product-item"><span id="product4_2">كفته بالطحينيه (500 غم)</span><span>5.50 JD</span></li>
-                        <li class="product-item"><span id="product4_3">صاجية دجاج (500 غم)</span><span>6.50 JD</span></li>
-                        <li class="product-item"><span id="product4_4">صاجية لحمه (500 غم)</span><span>10.00 JD</span></li>
-                        <li class="product-item"><span id="product4_5">فخارة زنجر</span><span>5.00 JD</span></li>
+                        <li class="product-item"><span id="product4_3">صينية بطاطا</span><span>6.00 JD</span></li>
+                        <li class="product-item"><span id="product4_4">صاجية لحم (500 غم)</span><span>7.50 JD</span></li>
+                        <li class="product-item"><span id="product4_5">صاجية دجاج (500 غم)</span><span>6.50 JD</span></li>
                     </ul>
                 </li>
                 <li id="item5" onclick="toggleCategory(this)">
                     <div class="category-header">
-                        <span id="category5">المشروبات الساخنة</span>
+                        <span id="category5">المشروبات</span>
                         <div class="toggle-icon"></div>
                     </div>
                     <ul class="products">
-                        <li class="product-item"><span id="product5_1">شاي</span><span>1.00 JD</span></li>
-                        <li class="product-item"><span id="product5_2">شاي أخضر</span><span>1.50 JD</span></li>
-                        <li class="product-item"><span id="product5_3">قهوة سادة</span><span>0.50 JD</span></li>
-                        <li class="product-item"><span id="product5_4">قهوة تركية</span><span>1.00 JD</span></li>
-                        <li class="product-item"><span id="product5_5">قهوة امريكية</span><span>2.00 JD</span></li>
-                        <li class="product-item"><span id="product5_6">نسكافيه</span><span>2.00 JD</span></li>
-                    </ul>
-                </li>
-                <li id="item6" onclick="toggleCategory(this)">
-                    <div class="category-header">
-                        <span id="category6">المشروبات الباردة</span>
-                        <div class="toggle-icon"></div>
-                    </div>
-                    <ul class="products">
-                        <li class="product-item"><span id="product6_1">كولا</span><span>1.00 JD</span></li>
-                        <li class="product-item"><span id="product6_2">عصير طبيعي</span><span>2.00 JD</span></li>
-                        <li class="product-item"><span id="product6_3">ماء</span><span>0.50 JD</span></li>
-                        <li class="product-item"><span id="product6_4">عصير معلب</span><span>1.50 JD</span></li>
-                        <li class="product-item"><span id="product6_5">كوكتيل فواكه</span><span>3.00 JD</span></li>
+                        <li class="product-item"><span id="product5_1">عصير برتقال</span><span>2.50 JD</span></li>
+                        <li class="product-item"><span id="product5_2">عصير تفاح</span><span>2.50 JD</span></li>
+                        <li class="product-item"><span id="product5_3">كوكاكولا</span><span>1.50 JD</span></li>
+                        <li class="product-item"><span id="product5_4">بيبسي</span><span>1.50 JD</span></li>
+                        <li class="product-item"><span id="product5_5">مياه معدنية</span><span>1.00 JD</span></li>
                     </ul>
                 </li>
             </ul>
         </section>
     </main>
     <script>
-        function toggleCategory(category) {
-            const products = category.querySelector('.products');
-            products.classList.toggle('open');
-            category.classList.toggle('open');
+        function toggleCategory(element) {
+            const productsList = element.querySelector('.products');
+            const isOpen = productsList.classList.contains('open');
+            const allProducts = document.querySelectorAll('.products');
+
+            // Close all categories
+            allProducts.forEach(products => {
+                products.classList.remove('open');
+                products.previousElementSibling.querySelector('.toggle-icon').style.transform = 'rotate(0deg)';
+            });
+
+            // Toggle the clicked category
+            if (!isOpen) {
+                productsList.classList.add('open');
+                element.querySelector('.toggle-icon').style.transform = 'rotate(180deg)';
+            }
         }
 
         function switchLanguage() {
-            const language = document.getElementById("languageSwitcher").value;
-            if (language === "ar") {
-                document.body.style.direction = "rtl";
-                document.getElementById("title").innerText = "قائمة المقهى";
-                document.getElementById("menuTitle").innerText = "القائمة";
-                document.getElementById("category1").innerText = "البيتزا";
-                document.getElementById("product1_1").innerText = "بيتزا مارجريتا";
-                document.getElementById("product1_2").innerText = "بيتزا خضار";
-                document.getElementById("product1_3").innerText = "بيتزا زنجر";
-                document.getElementById("product1_4").innerText = "بيتزا تيركي";
-                document.getElementById("product1_5").innerText = "بيتزا ببروني";
-                document.getElementById("category2").innerText = "المشاوي";
-                document.getElementById("product2_1").innerText = "مشكل (1 كيلو)";
-                document.getElementById("product2_2").innerText = "شقف (1 كيلو)";
-                document.getElementById("product2_3").innerText = "كباب (1 كيلو)";
-                document.getElementById("product2_4").innerText = "شيش طاووق (1 كيلو)";
-                document.getElementById("product2_5").innerText = "دجاج تركي";
-                document.getElementById("category3").innerText = "سناكات";
-                document.getElementById("product3_1").innerText = "شاورما دجاج عادي";
-                document.getElementById("product3_2").innerText = "شاورما دجاج دبل";
-                document.getElementById("product3_3").innerText = "برجر سكالوب";
-                document.getElementById("product3_4").innerText = "برجر لحمه كلاسيك (لحم طازج)";
-                document.getElementById("product3_5").innerText = "برغر سبيشال";
-                document.getElementById("category4").innerText = "الصواني والفخارات";
-                document.getElementById("product4_1").innerText = "كفته بالبندوره (500 غم)";
-                document.getElementById("product4_2").innerText = "كفته بالطحينيه (500 غم)";
-                document.getElementById("product4_3").innerText = "صاجية دجاج (500 غم)";
-                document.getElementById("product4_4").innerText = "صاجية لحمه (500 غم)";
-                document.getElementById("product4_5").innerText = "فخارة زنجر";
-                document.getElementById("category5").innerText = "المشروبات الساخنة";
-                document.getElementById("product5_1").innerText = "شاي";
-                document.getElementById("product5_2").innerText = "شاي أخضر";
-                document.getElementById("product5_3").innerText = "قهوة سادة";
-                document.getElementById("product5_4").innerText = "قهوة تركية";
-                document.getElementById("product5_5").innerText = "قهوة امريكية";
-                document.getElementById("product5_6").innerText = "نسكافيه";
-                document.getElementById("category6").innerText = "المشروبات الباردة";
-                document.getElementById("product6_1").innerText = "كولا";
-                document.getElementById("product6_2").innerText = "عصير طبيعي";
-                document.getElementById("product6_3").innerText = "ماء";
-                document.getElementById("product6_4").innerText = "عصير معلب";
-                document.getElementById("product6_5").innerText = "كوكتيل فواكه";
+            const lang = document.getElementById('languageSwitcher').value;
+            if (lang === 'en') {
+                // Change to English
+                document.getElementById('title').innerText = 'Cafe Menu';
+                document.getElementById('menuTitle').innerText = 'Menu';
+                document.querySelectorAll('[id^=category]').forEach(el => el.innerText = el.innerText.replace('ال', ''));
+                document.querySelectorAll('[id^=product]').forEach(el => el.innerText = el.innerText.replace('JD', ''));
             } else {
-                document.body.style.direction = "ltr";
-                document.getElementById("title").innerText = "Cafe Menu";
-                document.getElementById("menuTitle").innerText = "Menu";
-                document.getElementById("category1").innerText = "Pizza";
-                document.getElementById("product1_1").innerText = "Margherita Pizza";
-                document.getElementById("product1_2").innerText = "Vegetable Pizza";
-                document.getElementById("product1_3").innerText = "Zinger Pizza";
-                document.getElementById("product1_4").innerText = "Turkey Pizza";
-                document.getElementById("product1_5").innerText = "Pepperoni Pizza";
-                document.getElementById("category2").innerText = "Grills";
-                document.getElementById("product2_1").innerText = "Mixed Grill (1 Kg)";
-                document.getElementById("product2_2").innerText = "Shish Kebab (1 Kg)";
-                document.getElementById("product2_3").innerText = "Kofta Kebab (1 Kg)";
-                document.getElementById("product2_4").innerText = "Shish Tawook (1 Kg)";
-                document.getElementById("product2_5").innerText = "Turkey Chicken";
-                document.getElementById("category3").innerText = "Snacks";
-                document.getElementById("product3_1").innerText = "Regular Chicken Shawarma";
-                document.getElementById("product3_2").innerText = "Double Chicken Shawarma";
-                document.getElementById("product3_3").innerText = "Scallop Burger";
-                document.getElementById("product3_4").innerText = "Classic Beef Burger (Fresh Beef)";
-                document.getElementById("product3_5").innerText = "Special Burger";
-                document.getElementById("category4").innerText = "Trays and Casseroles";
-                document.getElementById("product4_1").innerText = "Kofta with Tomatoes (500g)";
-                document.getElementById("product4_2").innerText = "Kofta with Tahini (500g)";
-                document.getElementById("product4_3").innerText = "Chicken Sajiya (500g)";
-                document.getElementById("product4_4").innerText = "Beef Sajiya (500g)";
-                document.getElementById("product4_5").innerText = "Zinger Casserole";
-                document.getElementById("category5").innerText = "Hot Drinks";
-                document.getElementById("product5_1").innerText = "Tea";
-                document.getElementById("product5_2").innerText = "Green Tea";
-                document.getElementById("product5_3").innerText = "Plain Coffee";
-                document.getElementById("product5_4").innerText = "Turkish Coffee";
-                document.getElementById("product5_5").innerText = "American Coffee";
-                document.getElementById("product5_6").innerText = "Nescafe";
-                document.getElementById("category6").innerText = "Cold Drinks";
-                document.getElementById("product6_1").innerText = "Cola";
-                document.getElementById("product6_2").innerText = "Natural Juice";
-                document.getElementById("product6_3").innerText = "Water";
-                document.getElementById("product6_4").innerText = "Canned Juice";
-                document.getElementById("product6_5").innerText = "Fruit Cocktail";
+                // Change to Arabic
+                document.getElementById('title').innerText = 'قائمة المقهى';
+                document.getElementById('menuTitle').innerText = 'القائمة';
+                document.querySelectorAll('[id^=category]').forEach(el => el.innerText = el.innerText.replace('ل', 'ال'));
+                document.querySelectorAll('[id^=product]').forEach(el => el.innerText = el.innerText.replace(' ', 'JD '));
             }
         }
     </script>
