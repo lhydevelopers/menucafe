@@ -4,124 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قائمة المقهى | Cafe Menu</title>
-     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap">
     <style>
-       body {
-    font-family: 'Lora', serif;
-    background: linear-gradient(45deg, #ffffff, #f8f8f8);
-    color: #b39c58;
-    direction: rtl;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(45deg, #ffffff, #f8f8f8);
+            color: #b39c58;
+            direction: rtl;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background: linear-gradient(45deg, #fffde4, #fffae1);
-    border-bottom: 2px solid #b39c58;
-}
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(45deg, #fffde4, #fffae1);
+            border-bottom: 2px solid #b39c58;
+        }
 
-h1 {
-    margin: 0;
-    font-size: 26px; /* Larger font size for headings */
-    font-weight: 600; /* Bold weight for heading */
-    color: #b39c58;
-}
+        h1, h2 {
+            margin: 0;
+            color: #b39c58;
+        }
 
-select {
-    padding: 6px;
-    background-color: #fffae1;
-    color: #b39c58;
-    border: 1px solid #b39c58;
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: 'Lora', serif;
-}
+        select {
+            padding: 5px;
+            background-color: #fffae1;
+            color: #b39c58;
+            border: 1px solid #b39c58;
+            border-radius: 5px;
+        }
 
-main {
-    padding: 15px;
-    flex: 1;
-    overflow-y: auto;
-}
+        main {
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+        }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-li {
-    padding: 12px;
-    background: linear-gradient(45deg, #fff8e1, #fff4d8);
-    margin: 8px 0;
-    border: 1px solid #b39c58;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    position: relative;
-}
+        li {
+            padding: 15px;
+            background: linear-gradient(45deg, #fff8e1, #fff4d8);
+            margin: 10px 0;
+            border: 1px solid #b39c58;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            position: relative;
+        }
 
-li:hover {
-    background-color: #fff0c2;
-    transform: scale(1.02);
-}
+        li:hover {
+            background-color: #fff0c2;
+            transform: scale(1.02);
+        }
 
-.category-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.category-header span {
-    flex: 1;
-    font-size: 18px; /* Slightly larger for category names */
-    font-weight: 600; /* Bold weight for category names */
-}
+        .category-header span {
+            flex: 1;
+        }
 
-.toggle-icon {
-    width: 20px;
-    height: 20px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23b39c58" d="M12 15.5l-6.5-6.5 1.5-1.5 5 5 5-5 1.5 1.5z"/></svg>');
-    background-repeat: no-repeat;
-    background-size: contain;
-    transition: transform 0.3s;
-}
+        .toggle-icon {
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23b39c58" d="M12 15.5l-6.5-6.5 1.5-1.5 5 5 5-5 1.5 1.5z"/></svg>');
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: transform 0.3s;
+        }
 
-.open .toggle-icon {
-    transform: rotate(180deg);
-}
+        .open .toggle-icon {
+            transform: rotate(180deg);
+        }
 
-.products {
-    margin-top: 10px;
-    padding-left: 10px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
-}
+        .products {
+            margin-top: 10px;
+            padding-left: 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+        }
 
-.products.open {
-    max-height: 500px; /* Adjust based on content */
-    padding: 10px 0;
-    transition: max-height 0.5s ease-in, padding 0.5s ease-in;
-}
+        .products.open {
+            max-height: 500px; /* Large enough to fit the content */
+            padding: 10px 20px;
+            transition: max-height 0.5s ease-in, padding 0.5s ease-in;
+        }
 
-.product-item {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-}
+        .product-item {
+            display: flex;
+            justify-content: space-between;
+        }
 
-.product-item span {
-    color: #b39c58;
-    font-weight: 400; /* Regular weight for product details */
-}
-
+        .product-item span {
+            color: #b39c58;
+        }
     </style>
 </head>
 <body>
