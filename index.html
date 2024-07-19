@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
+<html lang="ar" data-arp=""><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قائمة المقهى | Cafe Menu</title>
@@ -120,11 +118,11 @@
         }
     </style>
 </head>
-<body>
+<body style="direction: rtl;">
     <header>
-        <h1 id="title">قائمة المقهى</h1>
+        <h1 id="title">مطعم وكافيه دير القمر</h1>
         <select id="languageSwitcher" onchange="switchLanguage()">
-            <option value="ar" selected>العربية</option>
+            <option value="ar" selected="">العربية</option>
             <option value="en">English</option>
         </select>
     </header>
@@ -168,7 +166,7 @@
                         <li class="product-item"><span id="product3_1">شاورما دجاج عادي</span><span>3.00 JD</span></li>
                         <li class="product-item"><span id="product3_2">شاورما دجاج دبل</span><span>5.50 JD</span></li>
                         <li class="product-item"><span id="product3_3">برجر سكالوب</span><span>3.50 JD</span></li>
-                        <li class="product-item"><span id="product3_4">برجر لحمه كلاسيك</span><span>4.50 JD</span></li>
+                        <li class="product-item"><span id="product3_4">برجر لحم كلاسيك</span><span>4.50 JD</span></li>
                         <li class="product-item"><span id="product3_5">برغر سبيشال</span><span>5.75 JD</span></li>
                     </ul>
                 </li>
@@ -198,7 +196,19 @@
                         <li class="product-item"><span id="product5_5">قهوة إسبريسو</span><span>2.00 JD</span></li>
                     </ul>
                 </li>
-            </ul>
+            <li id="item6" class="closed" onclick="toggleCategory(this)">
+                    <div class="category-header">
+                        <span id="category6">المشروبات الباردة</span>
+                        <div class="toggle-icon"></div>
+                    </div>
+                    <ul class="products">
+                        <li class="product-item"><span id="product6_1">آيس لاتيه (كراميل,فانيلا,بندق)</span><span>2.50 JD</span></li>
+                        <li class="product-item"><span id="product6_2">آيس موكا (دارك,وايت)</span><span>1.50 JD</span></li>
+                        <li class="product-item"><span id="product6_3">آيس كراميل ميكاتو</span><span>2.00 JD</span></li>
+                        <li class="product-item"><span id="product6_4">آيس سبانش لاتيه</span><span>2.50 JD</span></li>
+                        <li class="product-item"><span id="product6_5">فرابتشينو (كراميل-دارك,وايت)</span><span>2.00 JD</span></li>
+                    </ul>
+                </li></ul>
         </section>
     </main>
 
@@ -208,13 +218,14 @@
             if (language === 'en') {
                 document.querySelector('html').setAttribute('lang', 'en');
                 document.body.style.direction = 'ltr'; // Switch to left-to-right direction
-                document.getElementById('title').textContent = 'Cafe Menu';
+                document.getElementById('title').textContent = 'Deir Elqamar Restuarant&Cafe';
                 document.getElementById('menuTitle').textContent = 'Menu';
                 document.getElementById('category1').textContent = 'Pizza';
                 document.getElementById('category2').textContent = 'Grills';
                 document.getElementById('category3').textContent = 'Snacks';
                 document.getElementById('category4').textContent = 'Trays and Pots';
                 document.getElementById('category5').textContent = 'Hot Drinks';
+                document.getElementById('category6').textContent = 'Cold Drinks';
                 document.getElementById('product1_1').textContent = 'Margherita Pizza';
                 document.getElementById('product1_2').textContent = 'Vegetable Pizza';
                 document.getElementById('product1_3').textContent = 'Zinger Pizza';
@@ -240,16 +251,22 @@
                 document.getElementById('product5_3').textContent = 'Coffee';
                 document.getElementById('product5_4').textContent = 'American Coffee';
                 document.getElementById('product5_5').textContent = 'Espresso';
+                document.getElementById('product6_1').textContent = 'Ice latte (caramel, vanilla, hazelnut)';
+                document.getElementById('product6_2').textContent = 'Ice Mocha (Dark, White)';
+                document.getElementById('product6_3').textContent = 'Ice caramel macchiato';
+                document.getElementById('product6_4').textContent = 'Ice spanish latte';
+                document.getElementById('product6_5').textContent = 'Frappuccino (Caramel-Dark,White)';
             } else {
                 document.querySelector('html').setAttribute('lang', 'ar');
                 document.body.style.direction = 'rtl'; // Switch to right-to-left direction
-                document.getElementById('title').textContent = 'قائمة المقهى';
+                document.getElementById('title').textContent = 'مطعم وكافيه دير القمر';
                 document.getElementById('menuTitle').textContent = 'القائمة';
                 document.getElementById('category1').textContent = 'البيتزا';
                 document.getElementById('category2').textContent = 'المشاوي';
                 document.getElementById('category3').textContent = 'سناكات';
                 document.getElementById('category4').textContent = 'الصواني والفخارات';
                 document.getElementById('category5').textContent = 'المشروبات الساخنة';
+                document.getElementById('category6').textContent = 'المشروبات الباردة';
                 document.getElementById('product1_1').textContent = 'بيتزا مارجريتا';
                 document.getElementById('product1_2').textContent = 'بيتزا خضار';
                 document.getElementById('product1_3').textContent = 'بيتزا زنجر';
@@ -263,7 +280,7 @@
                 document.getElementById('product3_1').textContent = 'شاورما دجاج عادي';
                 document.getElementById('product3_2').textContent = 'شاورما دجاج دبل';
                 document.getElementById('product3_3').textContent = 'برجر سكالوب';
-                document.getElementById('product3_4').textContent ='برجر لحم كلاسيك';
+                document.getElementById('product3_4').textContent='برجر لحمه كلاسيك';
                 document.getElementById('product3_5').textContent = 'برغر سبيشال';
                 document.getElementById('product4_1').textContent = 'كفته بالبندوره (500 غم)';
                 document.getElementById('product4_2').textContent = 'كفته بالطحينيه (500 غم)';
@@ -275,6 +292,11 @@
                 document.getElementById('product5_3').textContent = 'قهوة';
                 document.getElementById('product5_4').textContent = 'قهوة أمريكية';
                 document.getElementById('product5_5').textContent = 'قهوة إسبريسو';
+                document.getElementById('product6_1').textContent = 'آيس لاتيه (كراميل,فانيلا,بندق)';
+                document.getElementById('product6_2').textContent = 'آيس موكا (دارك,وايت)';
+                 document.getElementById('product6_3').textContent = 'آيس كراميل ميكاتو';
+                 document.getElementById('product6_4').textContent = 'آيس سبانش لاتيه';
+                 document.getElementById('product6_5').textContent = 'فرابتشينو (كراميل-دارك,وايت)';
             }
         }
 
@@ -296,5 +318,112 @@
             }
         }
     </script>
-</body>
-</html>
+
+
+</body><vmaker-container style="position: fixed; top: 0px; right: 0px; z-index: 99999999; width: 100%; height: 100%; pointer-events: none; user-select: none;"><style>
+          @font-face {
+            font-family: 'VM-Poppins';
+            src: url(chrome-extension://bjibimlhliikdlklncdgkpdmgkpieplj/static/media/Poppins-Light.ttf) format('truetype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+          }
+          @font-face {
+            font-family: 'VM-Poppins';
+            src: url(chrome-extension://bjibimlhliikdlklncdgkpdmgkpieplj/static/media/Poppins-Regular.ttf) format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+          }
+          @font-face {
+            font-family: 'VM-Poppins';
+            src: url(chrome-extension://bjibimlhliikdlklncdgkpdmgkpieplj/static/media/Poppins-Medium.ttf) format('truetype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+          }
+          @font-face {
+            font-family: 'VM-Poppins';
+            src: url(chrome-extension://bjibimlhliikdlklncdgkpdmgkpieplj/static/media/Poppins-SemiBold.ttf) format('truetype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+          }
+          @font-face {
+            font-family: 'VM-Poppins';
+            src: url(chrome-extension://bjibimlhliikdlklncdgkpdmgkpieplj/static/media/Poppins-Bold.ttf) format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+          }
+          @font-face {
+            font-family: 'VM-Allerta';
+            src: url(chrome-extension://bjibimlhliikdlklncdgkpdmgkpieplj/static/media/Allerta-Regular.ttf) format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: auto;
+          }
+          @font-face {
+            font-family: 'VM-Charmonman';
+            src: url(chrome-extension://bjibimlhliikdlklncdgkpdmgkpieplj/static/media/Charmonman-Regular.ttf) format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: auto;
+          }
+          @font-face {
+            font-family: 'VM-Comic Neue';
+            src: url(chrome-extension://bjibimlhliikdlklncdgkpdmgkpieplj/static/media/ComicNeue-Regular.ttf) format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: auto;
+          }
+          @font-face {
+            font-family: 'VM-Open Sans';
+            src: url(chrome-extension://bjibimlhliikdlklncdgkpdmgkpieplj/static/media/OpenSans-Regular.ttf) format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: auto;
+          }
+          @font-face {
+            font-family: 'VM-Poiret One';
+            src: url(chrome-extension://bjibimlhliikdlklncdgkpdmgkpieplj/static/media/PoiretOne-Regular.ttf) format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: auto;
+          }
+          @font-face {
+            font-family: 'VM-Signpainter';
+            src: url(chrome-extension://bjibimlhliikdlklncdgkpdmgkpieplj/static/media/Sign-Painter-Regular.ttf) format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: auto;
+          }
+          @font-face {
+            font-family: 'VM-Futura';
+            src: url(chrome-extension://bjibimlhliikdlklncdgkpdmgkpieplj/static/media/Futura-Light-font.ttf) format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: auto;
+          }
+          @font-face {
+            font-family: 'VM-Barlow';
+            src: url(chrome-extension://bjibimlhliikdlklncdgkpdmgkpieplj/static/media/Barlow-Regular.ttf) format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: auto;
+          }
+          @font-face {
+            font-family: 'VM-Norwester';
+            src: url(chrome-extension://bjibimlhliikdlklncdgkpdmgkpieplj/static/media/norwester.ttf) format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: auto;
+          }
+          @font-face {
+            font-family: 'VM-Europa';
+            src: url(chrome-extension://bjibimlhliikdlklncdgkpdmgkpieplj/static/media/europa.ttf) format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: auto;
+          }
+        </style></vmaker-container></html>
