@@ -83,11 +83,7 @@
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23FFD700" d="M12 15.5l-6.5-6.5 1.5-1.5 5 5 5-5 1.5 1.5z"/></svg>');
             background-repeat: no-repeat;
             background-size: contain;
-            transition: transform 0.3s;
-        }
-
-        .open .toggle-icon {
-            transform: rotate(180deg);
+            transition: transform 0.3s, margin 0.3s;
         }
 
         .products {
@@ -102,6 +98,16 @@
             max-height: 500px; /* Large enough to fit the content */
             padding: 10px 20px;
             transition: max-height 0.5s ease-in, padding 0.5s ease-in;
+        }
+
+        .open .toggle-icon {
+            transform: rotate(180deg);
+            margin-top: -10px; /* Adjust for the open state */
+        }
+
+        .closed .toggle-icon {
+            transform: rotate(0deg);
+            margin-bottom: -10px; /* Adjust for the closed state */
         }
 
         .product-item {
@@ -127,7 +133,7 @@
             <h2 id="menuTitle">القائمة</h2>
             <ul id="menuItems">
                 <!-- Menu items with products -->
-                <li id="item1" onclick="toggleCategory(this)">
+                <li id="item1" class="closed" onclick="toggleCategory(this)">
                     <div class="category-header">
                         <span id="category1">البيتزا</span>
                         <div class="toggle-icon"></div>
@@ -140,7 +146,7 @@
                         <li class="product-item"><span id="product1_5">بيتزا ببروني</span><span>4.50 JD</span></li>
                     </ul>
                 </li>
-                <li id="item2" onclick="toggleCategory(this)">
+                <li id="item2" class="closed" onclick="toggleCategory(this)">
                     <div class="category-header">
                         <span id="category2">المشاوي</span>
                         <div class="toggle-icon"></div>
@@ -153,7 +159,7 @@
                         <li class="product-item"><span id="product2_5">دجاج تركي</span><span>7.50 JD</span></li>
                     </ul>
                 </li>
-                <li id="item3" onclick="toggleCategory(this)">
+                <li id="item3" class="closed" onclick="toggleCategory(this)">
                     <div class="category-header">
                         <span id="category3">سناكات</span>
                         <div class="toggle-icon"></div>
@@ -162,11 +168,11 @@
                         <li class="product-item"><span id="product3_1">شاورما دجاج عادي</span><span>3.00 JD</span></li>
                         <li class="product-item"><span id="product3_2">شاورما دجاج دبل</span><span>5.50 JD</span></li>
                         <li class="product-item"><span id="product3_3">برجر سكالوب</span><span>3.50 JD</span></li>
-                        <li class="product-item"><span id="product3_4">برجر لحمه كلاسيك (لحم طازج)</span><span>4.50 JD</span></li>
+                        <li class="product-item"><span id="product3_4">برجر لحمه كلاسيك</span><span>4.50 JD</span></li>
                         <li class="product-item"><span id="product3_5">برغر سبيشال</span><span>5.75 JD</span></li>
                     </ul>
                 </li>
-                <li id="item4" onclick="toggleCategory(this)">
+                <li id="item4" class="closed" onclick="toggleCategory(this)">
                     <div class="category-header">
                         <span id="category4">الصواني والفخارات</span>
                         <div class="toggle-icon"></div>
@@ -179,7 +185,7 @@
                         <li class="product-item"><span id="product4_5">فخارة زنجر</span><span>5.00 JD</span></li>
                     </ul>
                 </li>
-                <li id="item5" onclick="toggleCategory(this)">
+                <li id="item5" class="closed" onclick="toggleCategory(this)">
                     <div class="category-header">
                         <span id="category5">المشروبات الساخنة</span>
                         <div class="toggle-icon"></div>
@@ -257,7 +263,7 @@
                 document.getElementById('product3_1').textContent = 'شاورما دجاج عادي';
                 document.getElementById('product3_2').textContent = 'شاورما دجاج دبل';
                 document.getElementById('product3_3').textContent = 'برجر سكالوب';
-                document.getElementById('product3_4').textContent = 'برجر لحمه كلاسيك (لحم طازج)';
+                document.getElementById('product3_4').textContent ='برجر لحم كلاسيك';
                 document.getElementById('product3_5').textContent = 'برغر سبيشال';
                 document.getElementById('product4_1').textContent = 'كفته بالبندوره (500 غم)';
                 document.getElementById('product4_2').textContent = 'كفته بالطحينيه (500 غم)';
@@ -276,11 +282,17 @@
             var products = element.querySelector('.products');
             if (products.classList.contains('open')) {
                 products.classList.remove('open');
+                element.classList.remove('open');
+                element.classList.add('closed');
             } else {
                 document.querySelectorAll('.products.open').forEach(function(product) {
                     product.classList.remove('open');
+                    product.parentElement.classList.remove('open');
+                    product.parentElement.classList.add('closed');
                 });
                 products.classList.add('open');
+                element.classList.remove('closed');
+                element.classList.add('open');
             }
         }
     </script>
